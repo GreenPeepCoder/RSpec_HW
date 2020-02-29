@@ -10,11 +10,16 @@ describe Dessert do
   let(:cookie) {Dessert.new("baked", 10, chef)}
 
   describe "#initialize" do
-    it "sets a type"
+    it "sets a type" do
+      expect(cookie.type).to eq("baked")
+    end
   
-    it "sets a quantity"
+    it "sets a quantity" do
+      expect(cookie.quantity).to eq(10)
+    end
 
     it "starts ingredients as an empty array" do
+      expect(cookie.ingredients.empty?).to be(true)
     end
 
     it "raises an argument error when given a non-integer quantity" do
