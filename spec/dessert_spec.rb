@@ -7,11 +7,11 @@ Instructions: implement all of the pending specs (the `it` statements without bl
 
 describe Dessert do
   let(:chef) { double("chef") }
-  let(:cookie) {Dessert.new("baked", 10, chef)}
+  let(:cookie) {Dessert.new("cookie", 10, chef)}
 
   describe "#initialize" do
     it "sets a type" do
-      expect(cookie.type).to eq("baked")
+      expect(cookie.type).to eq("cookie")
     end
   
     it "sets a quantity" do
@@ -63,6 +63,9 @@ describe Dessert do
   end
 
   describe "#make_more" do
-    it "calls bake on the dessert's chef with the dessert passed in"
+    it "calls bake on the dessert's chef with the dessert passed in" do
+      expect(chef).to receive(:bake).with(cookie)
+      cookie.make_more
+    end
   end
 end
