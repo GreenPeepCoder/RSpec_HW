@@ -48,9 +48,14 @@ describe Dessert do
   end
 
   describe "#eat" do
-    it "subtracts an amount from the quantity"
+    it "subtracts an amount from the quantity" do
+      cookie.eat(2)
+      expect(cookie.quantity).to eq(8)
+    end
 
-    it "raises an error if the amount is greater than the quantity"
+    it "raises an error if the amount is greater than the quantity" do
+      expect {cookie.eat(11)}.to raise_error("not enough left!")
+    end
   end
 
   describe "#serve" do
